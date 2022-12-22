@@ -7,19 +7,19 @@ block conteudo
                 div(class="alert {{messageClass}}", role="alert")
                 h2= message
             form(method="POST", action="/registrar")
-                div(class="form-group")
-                    label(for="firstNameInput") Seu primeiro nome
-                    input(name="firstName", type="text", class="form-control", id="firstNameInput")
-                div(class="form-group")
-                    label(for="lastNameInput") Sobrenome
-                    input(name="lastName", type="text", class="form-control", id="lastNameInput")
-                div(class="form-group")
-                    label(for="emailInput") Endereço Eletrônico
-                    input(name="email", type="email", class="form-control", id="emailInput", placeholder="Enter email")
-                div(class="form-group")
-                    label(for="passwordInput") Senha
-                    input(name="password", type="password", class="form-control", id="passwordInput", placeholder="Password")
-                div(class="form-group")
-                    label(for="confirmPasswordInput") Confirmar senha
-                    input(name="confirmPassword", type="password", class="form-control", id="confirmPasswordInput", placeholder="Re-enter your password here")
-                button(type="submit") Lograr
+                div(class="form-group single-input")
+                    label(for="firstNameInput")
+                    input(name="firstName", type="text", class="form-control input", id="firstNameInput", placeholder="Nome:" )
+                div(class="form-group single-input")
+                    label(for="lastNameInput")
+                    input(name="lastName", type="text", class="form-control input", id="lastNameInput", placeholder="Sobrenome: ")
+                div(class="form-group single-input")
+                    label(for="emailInput")
+                    input(name="email", type="email", class="form-control input", id="emailInput", placeholder="Email: ")
+                div(class="form-group single-input")
+                    label(for="passwordInput") 
+                    input(name="password", type="password", class="form-control input", id="passwordInput", placeholder="Senha: ")
+                div(class="form-group single-input")
+                    label(for="confirmPasswordInput") 
+                    input(name="confirmPassword", type="password", class="form-control input", id="confirmPasswordInput", placeholder="Confirmar senha: ")
+                button(type="submit") Cadastrar

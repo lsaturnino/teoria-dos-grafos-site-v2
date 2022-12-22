@@ -1,1 +1,14 @@
-h1 tela protegida hahhaa
+doctype html 
+html 
+    include includes/head.pug
+
+    body
+        header 
+            h1(class = 'header-especial') PÁGINA PARA ASSINATES
+
+        div.conteudo
+            h2 Seção Especial
+            h3 Ao se cadastrar em meu site, você terá oportunidade de ver alguns vídeos meus exclusivos, como também as minhas anotações.
+            iframe(width="560", height="315", src="https://www.youtube.com/embed/2HvgppfEVrM", title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+            a(class="butoes-logar", href="/saturnino.jpeg") Eu
+        include includes/footer.pug

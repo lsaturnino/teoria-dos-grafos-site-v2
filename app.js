@@ -23,7 +23,7 @@ async function registrarUsuario(client, newListing) {
     try{
         await client.connect();
         await client.db("sample_grafos").collection("cadastrados").insertOne(newListing);
-        console.log('Usuário cadastrado');
+        console.log('Novo usuário cadastrado.');
       } catch(e){
           console.error(e);
       } finally {
@@ -153,7 +153,7 @@ app.post('/login', (req, res) => {
             res.redirect('/especialprotected');
         } else {
             res.render('login', {
-                message: 'nome de usuário ou senha inválidos',
+                message: 'Parametros inválidos: Nome de usuário e/ou Senha inválidos',
                 messageClass: 'alert-danger'
             });
         }
@@ -177,9 +177,9 @@ app.post('/registrar', (req, res) => {
         if (password === confirmPassword) {     
             verificarEmailExistente(client, email).then(function(user){
                 if (user != null) {
-                    console.log(`Email já existe:\n ${user}`)
+                    console.log(`Email já existente:\n ${user}`)
                     res.render('registrar', {
-                        message: 'Usuário já cadastrado.',
+                        message: 'Este usuário já possui um cadastro',
                         messageClass: 'alert-danger'
                     });
                   } else {
@@ -191,24 +191,24 @@ app.post('/registrar', (req, res) => {
                         password: hashedPassword          
                       })
                         
-                      console.log("Usuário Registrado")
+                      console.log("Usuário Registrado com sucesso.")
                 
                       res.render('login', {
-                          message: 'Cadastro concluído. Por favor faça o login para continuar.',
+                          message: 'Cadastro feito com sucesso. Prossiga para logar.',
                           messageClass: 'alert-success'
                       });
                   }
             })
             .catch(console.error) 
         } else {
-              console.log("Senha não corresponde")
+              console.log("Senhas Inválidas")
               res.render('registrar', {
-                  message: 'Senha não corresponde.',
+                  message: 'As senhas não se correspodem.',
                   messageClass: 'alert-danger'
               });
         }
     } else {
-        console.log("Formulário incompleto.")
+        console.log("Formulário não está respondido corretamente.")
         res.render('registrar', {
               message: 'Preencha o formulário.',
               messageClass: 'alert-danger'
@@ -228,9 +228,9 @@ app.get('/especialprotected', (req, res) => {
         });
     }
 });
-//app.use(function(req, res, next) {
-    //res.render('404', { url: req.url })
-//});
+app.use(function(req, res, next) {
+    res.render('404', { url: req.url })
+});
 
 
 
